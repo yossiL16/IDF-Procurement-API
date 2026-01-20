@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 
 export async function writeFile(location : string, data : any) {
-    await fs.writeFile(location, data)
+const strData = JSON.stringify(data)
+    await fs.writeFile(location, strData)
     return{msg: "Updated successfully"}
 }
