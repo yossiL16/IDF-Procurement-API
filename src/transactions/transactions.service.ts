@@ -15,7 +15,8 @@ export class TransactionsService {
       hasImage: false,
       ...createTransactionDto
     }
-    let dolars = await readFile(locationBudget)
+    let jsonDolars = await readFile(locationBudget)
+let dolars = jsonDolars.currentBudget
     if(data.length === 0) {
       if((newItem.pricePerUnit * newItem.quantity) <= dolars.currentBudget ){
         data.push(newItem)
